@@ -79,10 +79,9 @@ export default function Contact() {
   }
 
   const socialLinks = [
-    { icon: "𝕏", label: "Twitter", url: "#" },
-    { icon: "🔗", label: "LinkedIn", url: "#" },
-    { icon: "📧", label: "Email", url: "mailto:alex@example.com" },
-    { icon: "💻", label: "GitHub", url: "#" },
+    { icon: "🔗", label: "LinkedIn", url: "www.linkedin.com/in/kundan-badhe-39174a19b" },
+    { icon: "📧", label: "Email", url: "kundanbadhe3@gmail.com" },
+    { icon: "💻", label: "GitHub", url: "https://github.com/Kundan04" },
   ]
 
   return (
