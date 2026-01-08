@@ -161,6 +161,8 @@ export default function Contact() {
                 <a
                   key={link.label}
                   href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group glassmorphism p-6 rounded-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 text-center"
                 >
                   <div className="text-3xl mb-2">{link.icon}</div>
