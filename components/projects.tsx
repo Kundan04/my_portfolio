@@ -1,110 +1,145 @@
 "use client";
 
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+
 export default function Projects() {
   const projects = [
     {
       title: "AI Disease Prediction System",
       description:
-        "AI-powered system that predicts diseases using LLMs and provides remedies and doctor suggestions.",
-      tech: ["Python", "Django", "React", "LLMs"],
+        "AI-powered health assistant using LLMs to predict diseases, recommend remedies, and suggest specialists based on symptoms.",
+      tech: ["Python", "Django", "React", "LLMs", "REST API"],
       github: "https://github.com/Kunal-Sanwadkar/personalhealthcareportal.git",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
+      highlights: ["LLM Integration", "Medical NLP", "Full Stack"],
     },
     {
-      title: "Quiz App",
+      title: "Quiz Application",
       description:
-        "A Django application for creating and taking quizzes with score tracking.",
-      tech: ["Django", "SQLite", "Bootstrap"],
+        "Feature-rich quiz platform with user authentication, score tracking, and admin dashboard for quiz management.",
+      tech: ["Django", "SQLite", "Bootstrap", "JavaScript"],
       github: "https://github.com/Kundan04/django_testquiz.git",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
+      highlights: ["Auth System", "CRUD Operations", "Responsive UI"],
     },
     {
       title: "City Mall – Virtual Shopping",
       description:
-        "A virtual mall experience allowing users to browse stores and explore products online.",
-      tech: ["Django", "Python", "HTML/CSS"],
+        "Virtual mall experience enabling users to browse stores, explore products, and navigate a digital shopping environment.",
+      tech: ["Django", "Python", "HTML/CSS", "JavaScript"],
       github: "https://github.com/Kundan04/django_Citymall.git",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
+      highlights: ["E-commerce", "User Experience", "Django ORM"],
     },
     {
-      title: "My Blog (MERN)",
+      title: "MERN Blog Platform",
       description:
-        "A MERN blog platform with authentication and commenting features.",
+        "Full-stack blog with JWT authentication, rich text editing, comments, and responsive design.",
       tech: ["MongoDB", "Express", "React", "Node.js"],
       github: "https://github.com/Kundan04/My-blog.git",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
+      highlights: ["JWT Auth", "MERN Stack", "REST API"],
     },
   ];
 
   return (
-    <section className="max-w-6xl mx-auto py-16 px-6 space-y-10">
-      {/* Title */}
-      <div className="text-center space-y-1">
-        <h2 className="text-4xl md:text-5xl font-bold text-white">Projects</h2>
-        <p className="text-[#94A3B8] text-sm">Some of the work I've built.</p>
+    <section className="max-w-6xl mx-auto py-16 px-6 space-y-12">
+      {/* Header */}
+      <div className="text-center space-y-4">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--theme-bg)] border border-[var(--theme-border)]">
+          <span className="text-[var(--theme-primary)] font-mono text-sm">~/projects</span>
+          <span className="text-[var(--theme-text-dim)] font-mono text-sm">$</span>
+          <span className="text-[var(--theme-text)] font-mono text-sm">ls -la</span>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-bold text-[var(--theme-text)]">Projects</h2>
+        <p className="text-[var(--theme-text-muted)] max-w-xl mx-auto">
+          Open source projects and production applications I've built.
+        </p>
       </div>
 
-      {/* Grid */}
+      {/* Projects Grid */}
       <div className="grid md:grid-cols-2 gap-6">
         {projects.map((project, i) => (
           <div
             key={i}
-            className="relative rounded-xl overflow-hidden group border border-white/10 bg-[#0f172a]/50"
+            className="group relative rounded-xl overflow-hidden bg-[var(--theme-bg)] border border-[var(--theme-border)]
+              hover:border-[var(--theme-secondary)]/40 transition-all duration-300 hover-lift"
           >
-            {/* Background Video (if exists) */}
-            {project.video && (
-              <video
-                src={project.video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-all duration-300"
-              />
-            )}
+            {/* Top accent bar */}
+            <div className="h-1 gradient-border"></div>
 
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70"></div>
+            <div className="p-6 space-y-4">
+              {/* Project Header */}
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-[var(--theme-text)] group-hover:text-[var(--theme-secondary)] transition-colors">
+                    {project.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {project.highlights.map((h) => (
+                      <span
+                        key={h}
+                        className="text-xs font-mono px-2 py-0.5 rounded bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] border border-[var(--theme-primary)]/20"
+                      >
+                        {h}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
-            {/* Content */}
-            <div className="relative p-6 space-y-4">
-              <h3 className="text-xl font-semibold text-white">
-                {project.title}
-              </h3>
+                {/* GitHub Link */}
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-md bg-[var(--theme-bg-secondary)] border border-[var(--theme-border)] text-[var(--theme-text-muted)]
+                    hover:text-[var(--theme-primary)] hover:border-[var(--theme-primary)]/30 transition-all"
+                >
+                  <FaGithub size={18} />
+                </a>
+              </div>
 
-              <p className="text-[#cbd5e1] text-sm leading-relaxed">
+              {/* Description */}
+              <p className="text-[var(--theme-text-muted)] text-sm leading-relaxed">
                 {project.description}
               </p>
 
-              {/* Tech */}
-              <div className="flex flex-wrap gap-2">
+              {/* Tech Stack */}
+              <div className="flex flex-wrap gap-2 pt-2">
                 {project.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="px-3 py-1 text-xs bg-white/10 border border-white/10 rounded-full text-[#E2E8F0]"
-                  >
+                  <span key={t} className="code-tag text-xs">
                     {t}
                   </span>
                 ))}
               </div>
 
-              {/* GitHub Button */}
-              <a
-                href={project.github}
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md bg-[#1e293b]/70 border border-white/10 text-white hover:bg-[#1e293b]/90 transition duration-200"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
+              {/* View Project Link */}
+              <div className="pt-2">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-mono text-[var(--theme-secondary)] hover:text-[var(--theme-primary)] transition-colors"
                 >
-                  <path d="M12 0C5.37 0 0 5.48 0 12.25c0 5.41 3.44 9.99 8.2 11.62.6.12.82-.27.82-.6 0-.3-.01-1.1-.02-2.16-3.34.75-4.04-1.66-4.04-1.66-.55-1.43-1.34-1.81-1.34-1.81-1.1-.78.08-.76.08-.76 1.22.09 1.87 1.28 1.87 1.28 1.08 1.9 2.83 1.35 3.52 1.03.11-.81.42-1.35.76-1.66-2.67-.32-5.47-1.37-5.47-6.1 0-1.35.47-2.45 1.24-3.32-.13-.33-.54-1.64.12-3.42 0 0 1.01-.33 3.3 1.27a10.97 10.97 0 0 1 6 0c2.28-1.6 3.29-1.27 3.29-1.27.66 1.78.25 3.09.12 3.42.77.87 1.24 1.97 1.24 3.32 0 4.74-2.8 5.78-5.48 6.09.43.39.82 1.16.82 2.34 0 1.69-.02 3.05-.02 3.47 0 .33.22.73.82.6 4.75-1.63 8.19-6.21 8.19-11.62C24 5.48 18.63 0 12 0z" />
-                </svg>
-                GitHub
-              </a>
+                  <span>{">"}</span>
+                  <span>view_source()</span>
+                  <FaExternalLinkAlt size={10} />
+                </a>
+              </div>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* More Projects CTA */}
+      <div className="text-center pt-4">
+        <a
+          href="https://github.com/Kundan04"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 px-6 py-3 rounded-md font-mono text-sm
+            bg-[var(--theme-bg-secondary)] border border-[var(--theme-border)] text-[var(--theme-text)]
+            hover:border-[var(--theme-primary)]/50 hover:text-[var(--theme-primary)] transition-all"
+        >
+          <FaGithub size={18} />
+          <span>View More on GitHub</span>
+        </a>
       </div>
     </section>
   );

@@ -1,178 +1,209 @@
 "use client";
 
-import { FaCode, FaCloud, FaCogs, FaDatabase, FaTools, FaBrain } from "react-icons/fa";
+import { FaCode, FaCloud, FaCogs, FaDatabase, FaBrain, FaServer, FaLayerGroup } from "react-icons/fa";
 
 export default function About() {
   const skills = [
     {
       category: "Languages",
-      icon: <FaCode className="text-[#38BDF8] text-xl" />,
+      icon: <FaCode className="text-[var(--theme-primary)]" />,
       items: ["Python", "JavaScript", "TypeScript"],
     },
     {
-      category: "Frameworks & Libraries",
-      icon: <FaCogs className="text-[#38BDF8] text-xl" />,
-      items: ["FastAPI", "Django", "React", "Chakra UI", "Node.js"],
+      category: "Frameworks",
+      icon: <FaCogs className="text-[var(--theme-secondary)]" />,
+      items: ["FastAPI", "Django", "React", "Node.js", "Chakra UI"],
     },
     {
       category: "Databases",
-      icon: <FaDatabase className="text-[#38BDF8] text-xl" />,
-      items: ["MongoDB", "PostgreSQL"],
+      icon: <FaDatabase className="text-[var(--theme-accent)]" />,
+      items: ["MongoDB", "PostgreSQL", "Redis"],
     },
     {
       category: "Cloud & DevOps",
-      icon: <FaCloud className="text-[#38BDF8] text-xl" />,
-      items: [
-        "Microsoft Azure",
-        "Azure Bot Services",
-        "Azure Functions",
-        "Azure Pipelines",
-        "Azure Containers",
-        "Azure DevOps",
-        "Nginx",
-      ],
+      icon: <FaCloud className="text-[var(--theme-warning)]" />,
+      items: ["Azure", "Docker", "CI/CD", "Nginx", "Kubernetes"],
     },
     {
-      category: "Tools & Monitoring",
-      icon: <FaTools className="text-[#38BDF8] text-xl" />,
-      items: ["Git", "Docker", "Bitbucket", "Celery", "WebSockets", "Grafana"],
+      category: "Architecture",
+      icon: <FaServer className="text-[var(--theme-secondary)]" />,
+      items: ["Microservices", "REST APIs", "Event-Driven", "WebSockets"],
     },
     {
-      category: "Other Skills",
-      icon: <FaBrain className="text-[#38BDF8] text-xl" />,
-      items: [
-        "RESTful APIs",
-        "Microservices Architecture",
-        "Agile/Scrum",
-        "Prompt Engineering",
-        "AI/LLM Integration",
-      ],
+      category: "AI & ML",
+      icon: <FaBrain className="text-[var(--theme-primary)]" />,
+      items: ["LLM Integration", "Prompt Engineering", "NLP", "OpenAI API"],
+    },
+  ];
+
+  // Domain-agnostic metrics that show engineering impact
+  const metrics = [
+    {
+      value: "70%",
+      label: "Efficiency Gains",
+      description: "Reduction in manual processes through automation",
+    },
+    {
+      value: "50%",
+      label: "Faster Deploys",
+      description: "CI/CD pipeline optimization",
+    },
+    {
+      value: "40%",
+      label: "Latency Reduction",
+      description: "Async processing & caching improvements",
+    },
+    {
+      value: "90%+",
+      label: "System Reliability",
+      description: "Production uptime across services",
     },
   ];
 
   return (
     <section className="max-w-6xl mx-auto py-20 px-6 space-y-16">
-      
-      {/* Section Header */}
+
+      {/* Section Header - Terminal Style */}
       <div className="text-center space-y-4">
-        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#14B8A6] via-[#A3E635] to-[#38BDF8] bg-clip-text text-transparent">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--theme-bg)] border border-[var(--theme-border)]">
+          <span className="text-[var(--theme-primary)] font-mono text-sm">~/about</span>
+          <span className="text-[var(--theme-text-dim)] font-mono text-sm">$</span>
+          <span className="text-[var(--theme-text)] font-mono text-sm">whoami</span>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-bold text-[var(--theme-text)]">
           About Me
         </h2>
-        <p className="text-[#94A3B8] max-w-2xl mx-auto text-lg">
-          AI-driven engineering, scalable backend systems, cloud automation, and practical product-focused development.
+        <p className="text-[var(--theme-text-muted)] max-w-2xl mx-auto">
+          Building scalable systems, automating workflows, and shipping production-ready solutions.
         </p>
       </div>
 
       {/* Main Grid */}
-      <div className="grid md:grid-cols-2 gap-14 items-start">
+      <div className="grid lg:grid-cols-5 gap-10 items-start">
 
-        {/* LEFT SIDE */}
-        <div className="space-y-10">
+        {/* LEFT SIDE - 3 cols */}
+        <div className="lg:col-span-3 space-y-8">
 
-          {/* About Text */}
-          <div className="space-y-6 text-lg text-[#CBD5E1] leading-relaxed">
-            <p>
-              I’m an{" "}
-              <span className="text-[#38BDF8] font-semibold">
-                AI-Driven Full Stack Developer
-              </span>{" "}
-              specializing in FastAPI, Python, React (TypeScript), JavaScript, Azure Cloud, and automation systems.
-            </p>
-
-            <p>
-              My work includes AI-based proctoring, multi-platform bot automation, orchestration pipelines, 
-              and cloud-native services that increased operational efficiency by{" "}
-              <span className="text-[#A3E635] font-semibold">70%+</span>.
-            </p>
-
-            <p>
-              I focus on high-reliability backend systems, clean architecture, and improving developer experience 
-              through intelligent automation.
-            </p>
+          {/* Terminal-style About Card */}
+          <div className="terminal-window">
+            <div className="terminal-header">
+              <div className="terminal-dot terminal-dot-red"></div>
+              <div className="terminal-dot terminal-dot-yellow"></div>
+              <div className="terminal-dot terminal-dot-green"></div>
+              <span className="ml-4 text-[var(--theme-text-muted)] font-mono text-sm">developer.config</span>
+            </div>
+            <div className="p-6 font-mono text-sm space-y-3">
+              <div className="flex">
+                <span className="text-[var(--theme-text-dim)] w-6">1</span>
+                <span className="text-[#ff7b72]">const</span>
+                <span className="text-[var(--theme-text)] mx-2">developer</span>
+                <span className="text-[#ff7b72]">=</span>
+                <span className="text-[var(--theme-text)] ml-2">{"{"}</span>
+              </div>
+              <div className="flex">
+                <span className="text-[var(--theme-text-dim)] w-6">2</span>
+                <span className="text-[var(--theme-text)] ml-4">focus:</span>
+                <span className="text-[#a5d6ff] ml-2">"Full Stack + AI Engineering"</span>
+                <span className="text-[var(--theme-text)]">,</span>
+              </div>
+              <div className="flex">
+                <span className="text-[var(--theme-text-dim)] w-6">3</span>
+                <span className="text-[var(--theme-text)] ml-4">approach:</span>
+                <span className="text-[#a5d6ff] ml-2">"Ship fast, iterate, optimize"</span>
+                <span className="text-[var(--theme-text)]">,</span>
+              </div>
+              <div className="flex">
+                <span className="text-[var(--theme-text-dim)] w-6">4</span>
+                <span className="text-[var(--theme-text)] ml-4">mindset:</span>
+                <span className="text-[#a5d6ff] ml-2">"Automate everything automatable"</span>
+                <span className="text-[var(--theme-text)]">,</span>
+              </div>
+              <div className="flex">
+                <span className="text-[var(--theme-text-dim)] w-6">5</span>
+                <span className="text-[var(--theme-text)] ml-4">passion:</span>
+                <span className="text-[#a5d6ff] ml-2">"Clean architecture & DX"</span>
+              </div>
+              <div className="flex">
+                <span className="text-[var(--theme-text-dim)] w-6">6</span>
+                <span className="text-[var(--theme-text)]">{"}"}</span>
+              </div>
+            </div>
           </div>
 
-          {/* KPI GRID */}
-          <div className="grid grid-cols-3 gap-4">
-
-            <div className="bg-[#0f172a]/60 border border-white/10 p-4 rounded-xl text-center backdrop-blur-lg">
-              <p className="text-sm text-[#7DD3FC]">Bots Live</p>
-              <p className="text-2xl font-bold text-white mt-1">30+</p>
-            </div>
-
-            <div className="bg-[#0f172a]/60 border border-white/10 p-4 rounded-xl text-center backdrop-blur-lg">
-              <p className="text-sm text-[#7DD3FC]">Proctoring Accuracy</p>
-              <p className="text-2xl font-bold text-white mt-1">90%</p>
-            </div>
-
-            <div className="bg-[#0f172a]/60 border border-white/10 p-4 rounded-xl text-center backdrop-blur-lg">
-              <p className="text-sm text-[#7DD3FC]">Infra Gain</p>
-              <p className="text-lg font-bold text-white mt-1">50% Faster</p>
-            </div>
-
+          {/* Impact Metrics Grid */}
+          <div className="grid grid-cols-2 gap-4">
+            {metrics.map((metric, i) => (
+              <div key={i} className="metric-card p-5 hover-lift">
+                <div className="text-3xl font-bold font-mono mb-1 text-[var(--theme-primary)]">
+                  {metric.value}
+                </div>
+                <div className="text-[var(--theme-text)] font-semibold text-sm mb-1">
+                  {metric.label}
+                </div>
+                <div className="text-[var(--theme-text-muted)] text-xs">
+                  {metric.description}
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* SECOND KPI ROW */}
-          <div className="grid grid-cols-3 gap-4">
-
-            <div className="bg-[#0f172a]/60 border border-white/10 p-4 rounded-xl text-center backdrop-blur-lg">
-              <p className="text-sm text-[#7DD3FC]">Chatbot Output</p>
-              <p className="text-lg font-bold text-white mt-1">40% Faster</p>
+          {/* Current Focus - What I bring to any team */}
+          <div className="p-5 rounded-xl bg-[var(--theme-bg)] border border-[var(--theme-border)]">
+            <div className="flex items-center gap-2 mb-4">
+              <FaLayerGroup className="text-[var(--theme-secondary)]" />
+              <span className="text-[var(--theme-text)] font-semibold">What I Bring to Your Team</span>
             </div>
 
-            <div className="bg-[#0f172a]/60 border border-white/10 p-4 rounded-xl text-center backdrop-blur-lg">
-              <p className="text-sm text-[#7DD3FC]">Team Leadership</p>
-              <p className="text-xl font-bold text-white mt-1">4 Engineers</p>
+            <div className="grid md:grid-cols-2 gap-3 text-sm">
+              <div className="flex items-start gap-2">
+                <span className="text-[var(--theme-primary)] font-mono">{"=>"}</span>
+                <span className="text-[var(--theme-text-muted)]">
+                  <strong className="text-[var(--theme-text)]">End-to-end ownership</strong> from design to deployment
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-[var(--theme-primary)] font-mono">{"=>"}</span>
+                <span className="text-[var(--theme-text-muted)]">
+                  <strong className="text-[var(--theme-text)]">Production-first mindset</strong> with reliability focus
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-[var(--theme-primary)] font-mono">{"=>"}</span>
+                <span className="text-[var(--theme-text-muted)]">
+                  <strong className="text-[var(--theme-text)]">Cross-functional collaboration</strong> with product & design
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-[var(--theme-primary)] font-mono">{"=>"}</span>
+                <span className="text-[var(--theme-text-muted)]">
+                  <strong className="text-[var(--theme-text)]">Continuous improvement</strong> via observability & metrics
+                </span>
+              </div>
             </div>
-
-            <div className="bg-[#0f172a]/60 border border-white/10 p-4 rounded-xl text-center backdrop-blur-lg">
-              <p className="text-sm text-[#7DD3FC]">Ops Reduction</p>
-              <p className="text-lg font-bold text-white mt-1">70% Less Manual</p>
-            </div>
-
-          </div>
-
-          {/* What I'm Building Now */}
-          <div className="p-5 rounded-2xl bg-[#0f172a]/60 backdrop-blur-xl border border-[#14B8A6]/20 shadow-lg">
-            <p className="text-[#7DD3FC] font-semibold mb-3 text-lg">
-              What I’m Building Right Now
-            </p>
-
-            <ul className="text-[#94A3B8] space-y-3 text-sm">
-              <li>
-                • <span className="font-semibold text-white">End-to-end LLM orchestration pipelines</span> for production-grade AI workloads.
-              </li>
-              <li>
-                • <span className="font-semibold text-white">Observability & distributed tracing</span> (OpenTelemetry, centralized logs).
-              </li>
-              <li>
-                • <span className="font-semibold text-white">Scalable Azure automation systems</span> to increase reliability and reduce engineering overhead.
-              </li>
-              <li>
-                • <span className="font-semibold text-white">Low-latency chatbot optimization</span> using async routing, caching, and prompt-level tuning.
-              </li>
-            </ul>
           </div>
         </div>
 
-        {/* RIGHT — SKILLS */}
-        <div className="grid sm:grid-cols-2 gap-6">
+        {/* RIGHT — SKILLS - 2 cols */}
+        <div className="lg:col-span-2 space-y-4">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-[var(--theme-text-muted)] font-mono text-sm">// tech_stack.json</span>
+          </div>
+
           {skills.map((group) => (
             <div
               key={group.category}
-              className="p-5 rounded-xl bg-[#0f172a]/50 border border-white/10 
-              backdrop-blur-lg shadow-md hover:shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all duration-300"
+              className="p-4 rounded-lg bg-[var(--theme-bg)] border border-[var(--theme-border)]
+              hover:border-[var(--theme-secondary)]/30 hover:shadow-[0_0_20px_color-mix(in_srgb,var(--theme-secondary)_10%,transparent)]
+              transition-all duration-300"
             >
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-2 mb-3">
                 {group.icon}
-                <h3 className="text-lg font-semibold text-white">{group.category}</h3>
+                <h3 className="text-sm font-semibold text-[var(--theme-text)]">{group.category}</h3>
               </div>
 
               <div className="flex flex-wrap gap-2">
                 {group.items.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 rounded-full text-xs font-medium bg-[#ffffff0d] text-[#E2E8F0] border border-white/10"
-                  >
+                  <span key={skill} className="skill-pill">
                     {skill}
                   </span>
                 ))}

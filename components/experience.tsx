@@ -1,116 +1,180 @@
 "use client";
 
+import { FaTerminal, FaRocket, FaBolt, FaChartLine } from "react-icons/fa";
+
 export default function Experience() {
   const experiences = [
     {
       role: "Software Ninja",
       company: "Assesshub",
-      period: "Jul 2023 – Present • Andheri",
-      description:
-        "Working across AI systems, automation, LLM engineering, backend development, and bot ecosystem at scale.",
-      achievements: [
-        "Designed & deployed camera + audio proctoring system with 90% cheating-detection reliability using AI.",
-        "Built & maintained 30+ Teams + WhatsApp bot workflows, reducing manual work by 70%.",
-        "Developed real-time 2-way audio bots using STT + LLM responses; built NLP-based mental health chatbot.",
-        "Created automated pipelines for Teams interview transcription & reporting (MS Graph API).",
-        "Built backend for generative AI interview platform using FastAPI + Azure OpenAI.",
-        "Optimized prompt engineering to improve question relevance and contextual accuracy.",
-        "Streamlined CI/CD (Docker, Bitbucket Pipelines, Azure DevOps, Nginx) reducing deployment time by 50%.",
-        "Implemented Celery async tasks improving chatbot throughput & reducing latency by ~40%.",
-        "Led a 4-member AI automation team ensuring delivery and production stability.",
-        "Enhanced React + Chakra UI components (forms, filters, modals) for better UX.",
+      period: "Jul 2023 – Present",
+      location: "Mumbai",
+      summary: "Leading AI systems, automation pipelines, and backend architecture at scale.",
+      highlights: [
+        {
+          category: "AI & ML",
+          icon: <FaRocket className="text-[var(--theme-primary)]" />,
+          items: [
+            { text: "Built AI proctoring system", metric: "90% accuracy" },
+            { text: "Developed NLP mental health chatbot with STT + LLM", metric: null },
+            { text: "Optimized prompt engineering for contextual accuracy", metric: null },
+          ],
+        },
+        {
+          category: "Automation",
+          icon: <FaBolt className="text-[var(--theme-secondary)]" />,
+          items: [
+            { text: "Deployed Teams + WhatsApp bot workflows", metric: "30+ bots" },
+            { text: "Reduced manual operations", metric: "70% less" },
+            { text: "Built interview transcription pipelines (MS Graph API)", metric: null },
+          ],
+        },
+        {
+          category: "Backend & DevOps",
+          icon: <FaTerminal className="text-[var(--theme-accent)]" />,
+          items: [
+            { text: "Architected FastAPI + Azure OpenAI backend", metric: null },
+            { text: "Streamlined CI/CD (Docker, Bitbucket, Azure)", metric: "50% faster deploys" },
+            { text: "Implemented Celery async tasks", metric: "40% lower latency" },
+          ],
+        },
+        {
+          category: "Leadership",
+          icon: <FaChartLine className="text-[var(--theme-warning)]" />,
+          items: [
+            { text: "Led AI automation team", metric: "4 engineers" },
+            { text: "Enhanced React + Chakra UI components for UX", metric: null },
+          ],
+        },
       ],
     },
     {
       role: "Software Developer",
       company: "Z & T Infotech",
       period: "Feb 2022 – May 2022",
-      description:
-        "Worked on frontend engineering, performance tuning, and backend API development.",
-      achievements: [
-        "Built component-driven interfaces using React functional components and hooks.",
-        "Improved UI performance & UX through efficient state management.",
-        "Developed REST APIs and backend logic using Node.js & Express.",
+      location: "Remote",
+      summary: "Frontend engineering with React and backend API development.",
+      highlights: [
+        {
+          category: "Development",
+          icon: <FaTerminal className="text-[var(--theme-secondary)]" />,
+          items: [
+            { text: "Built component-driven interfaces with React hooks", metric: null },
+            { text: "Improved UI performance through state optimization", metric: null },
+            { text: "Developed REST APIs with Node.js & Express", metric: null },
+          ],
+        },
       ],
     },
     {
       role: "Web Development Intern",
       company: "Vidyalankar Institute of Technology",
       period: "Mar 2021 – Jun 2021",
-      description:
-        "Learned and built production-level features in Django during a college-based internship.",
-      achievements: [
-        "Gained hands-on experience with Django MVC.",
-        "Built small-scale modules and explored full-stack workflows.",
+      location: "Mumbai",
+      summary: "Full-stack development training with Django.",
+      highlights: [
+        {
+          category: "Learning",
+          icon: <FaRocket className="text-[var(--theme-primary)]" />,
+          items: [
+            { text: "Hands-on Django MVC architecture", metric: null },
+            { text: "Built production-ready modules", metric: null },
+          ],
+        },
       ],
     },
   ];
 
   return (
-    <section className="max-w-6xl mx-auto py-16 px-6 space-y-10">
+    <section className="max-w-5xl mx-auto py-16 px-6 space-y-12">
       {/* Header */}
-      <div className="text-center space-y-2">
-        <h2 className="text-4xl md:text-5xl font-bold text-white">Experience</h2>
-        <p className="text-[#94A3B8] text-sm">
-          My professional journey in a developer-friendly hierarchy.
+      <div className="text-center space-y-4">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--theme-bg)] border border-[var(--theme-border)]">
+          <span className="text-[var(--theme-primary)] font-mono text-sm">~/experience</span>
+          <span className="text-[var(--theme-text-dim)] font-mono text-sm">$</span>
+          <span className="text-[var(--theme-text)] font-mono text-sm">cat career.log</span>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-bold text-[var(--theme-text)]">
+          Experience
+        </h2>
+        <p className="text-[var(--theme-text-muted)] max-w-xl mx-auto">
+          Impact-driven development across AI, automation, and scalable systems.
         </p>
       </div>
 
-      {/* Experience Tree */}
-      <div className="relative border-l border-white/10 pl-6 space-y-12">
+      {/* Experience Cards */}
+      <div className="space-y-8">
         {experiences.map((exp, i) => (
-          <div key={i} className="relative group transition-all">
-            {/* Node dot */}
-            <div className="absolute -left-3 top-1 w-4 h-4 rounded-full bg-[#38BDF8] shadow-[0_0_10px_#38BDF8] group-hover:scale-110 transition" />
-
-            {/* Curved connector */}
-            <div className="absolute -left-3 top-5 w-6 h-6 border-l border-b border-white/10 rounded-bl-lg"></div>
-
-            {/* Main Card */}
-            <div className="ml-4 p-4 rounded-lg border border-white/10 bg-[#0f172a]/40 
-                hover:bg-[#0f172a]/60 hover:border-[#38BDF8]/30 
-                hover:shadow-[0_0_12px_rgba(56,189,248,0.25)]
-                transition-all duration-300">
-
-              {/* Role */}
-              <h3 className="text-xl font-semibold text-white mb-1">
-                {exp.role}
-              </h3>
-
-              <p className="text-[#7DD3FC] text-sm">
-                company: <span className="text-[#94A3B8]">{exp.company}</span>
-              </p>
-
-              <p className="text-[#7DD3FC] text-sm">
-                period: <span className="text-[#94A3B8]">{exp.period}</span>
-              </p>
-
-              <p className="text-[#7DD3FC] text-sm">
-                description:{" "}
-                <span className="text-[#94A3B8]">{exp.description}</span>
-              </p>
-
-              {/* Achievements */}
-              <div className="mt-3">
-                <p className="text-[#7DD3FC] text-sm mb-1">achievements:</p>
-
-                <div className="ml-3 space-y-1">
-                  {exp.achievements.map((ach, idx) => (
-                    <div key={idx} className="flex items-start gap-2">
-                      <span className="text-[#A3E635]">•</span>
-                      <span className="text-[#94A3B8] text-sm">{ach}</span>
-                    </div>
-                  ))}
-                </div>
+          <div key={i} className="exp-card rounded-xl p-6 hover-lift">
+            {/* Header Row */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
+              <div>
+                <h3 className="text-xl font-bold text-[var(--theme-text)] flex items-center gap-2">
+                  <span className="text-[var(--theme-primary)] font-mono text-sm">{">"}</span>
+                  {exp.role}
+                </h3>
+                <p className="text-[var(--theme-secondary)] font-medium">
+                  @{exp.company}
+                </p>
+              </div>
+              <div className="flex items-center gap-3 text-sm">
+                <span className="px-3 py-1 rounded-md bg-[var(--theme-bg-secondary)] border border-[var(--theme-border)] text-[var(--theme-text-muted)] font-mono">
+                  {exp.period}
+                </span>
+                <span className="text-[var(--theme-text-dim)]">{exp.location}</span>
               </div>
             </div>
 
-            {/* Vertical line except last */}
-            {i !== experiences.length - 1 && (
-              <div className="absolute -left-[1px] top-8 h-full border-l border-white/10" />
-            )}
+            {/* Summary */}
+            <p className="text-[var(--theme-text-muted)] mb-6 pl-5 border-l-2 border-[var(--theme-border)]">
+              {exp.summary}
+            </p>
+
+            {/* Highlights Grid */}
+            <div className="grid md:grid-cols-2 gap-4">
+              {exp.highlights.map((highlight, j) => (
+                <div
+                  key={j}
+                  className="p-4 rounded-lg bg-[var(--theme-bg-secondary)]/50 border border-[var(--theme-border)]/50"
+                >
+                  {/* Category Header */}
+                  <div className="flex items-center gap-2 mb-3">
+                    {highlight.icon}
+                    <span className="text-[var(--theme-text)] font-semibold text-sm">
+                      {highlight.category}
+                    </span>
+                  </div>
+
+                  {/* Achievement Items */}
+                  <ul className="space-y-2">
+                    {highlight.items.map((item, k) => (
+                      <li key={k} className="flex items-start gap-2 text-sm">
+                        <span className="text-[var(--theme-border)] mt-1">{"-->"}</span>
+                        <span className="text-[var(--theme-text-muted)]">
+                          {item.text}
+                          {item.metric && (
+                            <span className="ml-2 px-2 py-0.5 rounded bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] font-mono text-xs border border-[var(--theme-primary)]/20">
+                              {item.metric}
+                            </span>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
+      </div>
+
+      {/* Timeline connector visual */}
+      <div className="flex justify-center">
+        <div className="flex items-center gap-2 text-[var(--theme-text-dim)] font-mono text-sm">
+          <span className="text-[var(--theme-primary)]">{"<"}</span>
+          <span>journey.start()</span>
+          <span className="text-[var(--theme-primary)]">{">"}</span>
+        </div>
       </div>
     </section>
   );
