@@ -2,15 +2,49 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import "@/styles/globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" })
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
-  title: "Kundan Badhe - Full Stack Engineer",
-  description: "Crafting beautiful and functional web experiences",
-  generator: "v0.app",
+  title: "Kundan Badhe | Full Stack Developer & AI Engineer",
+  description:
+    "Full Stack Developer specializing in FastAPI, React, Azure, and AI/LLM integrations. Building scalable backend systems and automation solutions.",
+  keywords: [
+    "Full Stack Developer",
+    "Backend Engineer",
+    "FastAPI",
+    "React",
+    "Python",
+    "Azure",
+    "AI Engineer",
+    "LLM",
+    "TypeScript",
+    "Node.js",
+  ],
+  authors: [{ name: "Kundan Badhe" }],
+  creator: "Kundan Badhe",
+  metadataBase: new URL("https://kundan.is-a.dev"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://kundan.is-a.dev",
+    siteName: "Kundan Badhe Portfolio",
+    title: "Kundan Badhe | Full Stack Developer & AI Engineer",
+    description:
+      "Full Stack Developer specializing in FastAPI, React, Azure, and AI/LLM integrations.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kundan Badhe | Full Stack Developer & AI Engineer",
+    description:
+      "Full Stack Developer specializing in FastAPI, React, Azure, and AI/LLM integrations.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: [
       {
@@ -37,7 +71,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`font-sans antialiased`}>
+      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
